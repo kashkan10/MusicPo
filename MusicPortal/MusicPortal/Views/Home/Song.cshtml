@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Song";
+}
+<h3>Исполнитель:</h3>
+<em>@ViewBag.Song.Singer</em>
+
+<h3>Название песни:</h3>
+<em>@ViewBag.Song.Title</em>
+
+<h3>Текст:</h3>
+@if (ViewBag.Song.Text != null)
+{
+    string[] title = ViewBag.Song.Text.Split('.');
+
+    foreach (var st in title)
+    {
+        <em>@st</em>
+        <br />
+    }
+}
+else
+{
+    <em>Пока без текста</em>
+    <br />
+}
+<br />
+<form action="/Home/Index">
+    <button class="submit" type="submit">Назад</button>
+</form>

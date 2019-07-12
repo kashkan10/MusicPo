@@ -1,0 +1,29 @@
+﻿@{
+                /**/
+
+                ViewBag.Title = "MusicPo";
+}
+@Styles.Render("~/Content/css")
+<div>
+    <h2>TrackList</h2>
+    <div align="right">
+        <form style="padding-right:10px;" method="post">
+            <p>
+                <input class="search" type="search" name="name" placeholder="Поиск по названию">
+                <input class="submit" type="submit" value="Найти">
+            </p>
+        </form>
+    </div>
+</div>
+@if (ViewBag.Text != null)
+{
+    <p>@ViewBag.Text</p>
+}
+<div>
+    <ol class="rounded">
+        @foreach (var song in ViewBag.Songs)
+        {
+            <li><p><a href="/Home/Song/?id=@song.Id"><span class="nameSpan">@song.Title -</span><span class="authorSpan"> @song.Singer </span><span class="durationSpan">@song.Duration</span></a></p></li>
+        }
+    </ol>
+</div>
